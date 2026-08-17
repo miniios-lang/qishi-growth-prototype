@@ -965,7 +965,6 @@ function renderPhoneCards(){
   track.innerHTML = SLIDES.map((s,i)=>{
     const c = C(s.course), cat = CAT(s.cat);
     return `<div class="phone-card" data-go="/course/${c.id}">
-      <span class="slide-no">${i+1}</span>
       <div class="phone-cover">
         <span class="tag accent cov-cat" style="height:20px;font-size:10px">${cat.name} · 干货</span>
         <b>${esc(s.slogan)}</b>
@@ -973,6 +972,7 @@ function renderPhoneCards(){
         <i class="cov-line"></i>
       </div>
       <div class="phone-info">
+        <span class="slide-no">${String(i+1).padStart(2,'0')}</span>
         <ul class="phone-points">
           ${s.points.map(p=>`<li><span class="pt-ic">${SVG.check}</span>${esc(p)}</li>`).join("")}
         </ul>
