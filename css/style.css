@@ -1138,17 +1138,24 @@ body.has-bar{ padding-bottom:calc(76px + env(safe-area-inset-bottom)); }
   .stkbar .sb-price small{ color:rgba(245,244,239,.62); }
   .stkbar .sb-price .was{ color:rgba(245,244,239,.4); }
   .toast{ background:linear-gradient(135deg, rgba(40,40,46,.94), rgba(22,22,26,.86)); color:var(--on-ink); border-color:rgba(255,255,255,.14); }
-  .buycard{ background:linear-gradient(150deg, rgba(34,34,40,.94), rgba(18,18,22,.86)); }
+  /* 移动端深色：暗色面板的文字/边框需显式修正，避免“黑字压暗底 / 浅字压浅底”（PC 浅色下正常） */
+  .buycard{ background:linear-gradient(150deg, rgba(34,34,40,.94), rgba(18,18,22,.86)); border-color:rgba(245,244,239,.16); }
   .buycard .bstrip .track{ background:rgba(245,244,239,.16); }
-  .searchov{ background:linear-gradient(160deg, rgba(24,24,28,.96), rgba(15,15,18,.92)); }
+  .buycard .bpromo{ color:#e7d27c; border-color:rgba(231,210,124,.5); }
+  .buycard .bpromo.flash{ color:#ff9385; border-color:rgba(255,147,133,.5); }
+  .searchov{ background:linear-gradient(160deg, rgba(24,24,28,.96), rgba(15,15,18,.92)); border:1px solid rgba(245,244,239,.1); }
   .sov-head{ border-color:rgba(245,244,239,.1); }
   .sov-head .input, .ct-search .input, .coupon-in .input{ background:var(--paper-2); color:var(--t1); }
   .ptag{ background:transparent; }
-  .promo-bar b{ color:var(--accent); }
+  /* 促销条底色在深色下仍保持浅柠，文字/加粗需强制深色，否则浅字压浅底不可见 */
+  .promo-bar{ color:var(--ink); }
+  .promo-bar b{ color:#6b4d00; }
+  .promo-bar .pb-go{ color:var(--ink); }
   .phone-screen{ background:var(--paper); }
   .phone-cover{ background:#101013; }
   .ol-lessons ul{ background:var(--paper-2); }
-  .courses-tools{ background:rgba(22,22,26,.88); }
+  .courses-tools{ background:rgba(22,22,26,.88); border-bottom-color:rgba(245,244,239,.12); }
+  .courses-tools .course-count b{ color:var(--on-ink); }
 }
 /* 打印（含课程大纲详版） */
 @media print{
